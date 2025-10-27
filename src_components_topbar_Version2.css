@@ -1,0 +1,183 @@
+:root {
+  --apyx-highlight: #F07694;
+  --apyx-contrast: #00A5FF;
+  --apyx-bg: #ffffff;
+  --nav-height: 100px;
+}
+
+.apyx-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: var(--apyx-highlight);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.apyx-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 28px;
+  box-sizing: border-box;
+  gap: 12px;
+}
+
+.apyx-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.apyx-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.apyx-nav-item {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease;
+}
+
+.apyx-nav-item:hover,
+.apyx-nav-item:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 18px rgba(240, 118, 148, 0.18), 0 0 18px rgba(255, 255, 255, 0.06) inset;
+  transform: translateY(-2px);
+}
+
+.apyx-nav-item--categories {
+  position: relative;
+}
+
+.apyx-categories-toggle {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.apyx-categories-dropdown {
+  position: absolute;
+  top: calc(var(--nav-height) - 14px);
+  left: 0;
+  min-width: 220px;
+  background: #ffffff;
+  color: #222;
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transform-origin: top left;
+  padding: 8px 6px;
+  overflow: hidden;
+  transition: opacity 160ms ease, transform 160ms ease;
+  z-index: 10000;
+}
+
+.apyx-categories-dropdown.visible {
+  display: flex;
+  opacity: 1;
+  transform: translateY(6px) scale(1);
+}
+
+.apyx-category-item {
+  appearance: none;
+  background: transparent;
+  border: none;
+  text-align: left;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: #111;
+  cursor: pointer;
+}
+
+.apyx-category-item + .apyx-category-item {
+  border-top: 3px solid rgba(0, 0, 0, 0.04);
+}
+
+.apyx-category-item:hover,
+.apyx-category-item:focus {
+  background: rgba(0, 165, 255, 0.06);
+  color: #0077b8;
+}
+
+.apyx-auth {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 8px 14px;
+  border-radius: 10px;
+}
+
+.apyx-register {
+  margin-left: 6px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.apyx-logo-wrap {
+  display: flex;
+  align-items: center;
+  margin-left: 14px;
+}
+
+.apyx-logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.apyx-logo-placeholder {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+@media (max-width: 880px) {
+  .apyx-nav {
+    padding: 10px 14px;
+  }
+  .apyx-nav-left {
+    gap: 8px;
+  }
+  .apyx-nav-item {
+    font-size: 16px;
+    padding: 6px 8px;
+  }
+  .apyx-logo {
+    height: 48px;
+  }
+  .apyx-categories-dropdown {
+    left: -6px;
+    min-width: 180px;
+  }
+}
+
+/* account for fixed nav */
+body {
+  padding-top: var(--nav-height);
+}
